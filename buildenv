@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Set up environment variables for general build tool to operate
+#
+if ! [ -f ./buildenv ]; then
+	echo "Need to source from the buildenv directory" >&2
+	return 0
+fi
+
+export ZOPEN_ROOT="${PWD}"
+export ZOPEN_TYPE="TARBALL"
+export ZOPEN_TARBALL_URL="https://github.com/lz4/lz4/archive/refs/tags/v1.9.3.tar.gz"
+export ZOPEN_TARBALL_DEPS="curl gzip make"
+
+export ZOPEN_BOOTSTRAP=skip
+export ZOPEN_CONFIGURE=skip
+
+export ZOPEN_EXTRA_CPPFLAGS='-I../lib/'
+rm -f v1.9.3
+ln -s lz4-1.9.3 v1.9.3
