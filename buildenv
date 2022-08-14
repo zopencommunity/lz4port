@@ -14,6 +14,7 @@ export ZOPEN_TARBALL_DEPS="curl gzip make coreutils"
 
 export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CONFIGURE=skip
+export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}"   
 
 export ZOPEN_EXTRA_CPPFLAGS='-I../lib/'
 rm -f v1.9.3
