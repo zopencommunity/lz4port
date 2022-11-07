@@ -13,6 +13,7 @@ export ZOPEN_NAME="lz4-1.9.3"
 export ZOPEN_EXTRA_CPPFLAGS='-I../lib/'
 rm -f v1.9.3
 ln -s ${ZOPEN_NAME} v1.9.3
+export ZOPEN_CHECK="skip"
 
 zopen_check_results()
 {
