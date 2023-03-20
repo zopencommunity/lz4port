@@ -4,25 +4,24 @@
 #
 export ZOPEN_TYPE="TARBALL"
 export ZOPEN_TARBALL_URL="https://github.com/lz4/lz4/archive/refs/tags/v1.9.3.tar.gz"
-export ZOPEN_TARBALL_DEPS="curl gzip make coreutils"
-export ZOPEN_EXTRA_CFLAGS='-qnocsect'
+export ZOPEN_TARBALL_DEPS="curl gzip make coreutils zoslib"
 export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CONFIGURE=skip
-export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}"   
+export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes PREFIX=\${ZOPEN_INSTALL_DIR}"   
 export ZOPEN_NAME="lz4-1.9.3"
 export ZOPEN_EXTRA_CPPFLAGS='-I../lib/'
 rm -f v1.9.3
 ln -s ${ZOPEN_NAME} v1.9.3
 
-#
-# Starter for Python
-# (probably not commonmark but keep it here so I remember syntax to pull in package)
-#
-if ! type python3 >/dev/null ; then
-  echo "need python3 set up for build of lz4" >&2
-  return 4
-fi
-export PATH=${HOME}/.local/bin:$PATH
+# Requires python3
+zopen_init()
+{
+  echo ${ZOPEN_INSTALL_DIR}
+  if ! type python3 >/dev/null ; then
+    printError "needs python3"
+  fi
+  export PATH=${HOME}/.local/bin:$PATH
+}
 
 zopen_append_to_env()
 {
