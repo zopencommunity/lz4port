@@ -1,18 +1,20 @@
 #!/bin/sh
-#
-# Set up environment variables for general build tool to operate
-#
-export ZOPEN_TYPE="TARBALL"
-export ZOPEN_TARBALL_URL="https://github.com/lz4/lz4/archive/refs/tags/v1.9.3.tar.gz"
-export ZOPEN_TARBALL_DEPS="curl gzip make coreutils python"
+
+# bump: lz4-version /LZ4_VERSION="(.*)"/ https://github.com/lz4/lz4.git|semver:^1
+LZ4_VERSION="1.9.3"
+
+export ZOPEN_BUILD_LINE="STABLE"
+export ZOPEN_STABLE_URL="https://github.com/lz4/lz4/archive/refs/tags/v${LZ4_VERSION}.tar.gz"
+export ZOPEN_STABLE_DEPS="curl gzip make coreutils python"
 export ZOPEN_EXTRA_CFLAGS='-qnocsect'
 export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CONFIGURE=skip
 export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes prefix=\${ZOPEN_INSTALL_DIR}"   
-export ZOPEN_NAME="lz4-1.9.3"
+export ZOPEN_NAME="lz4-${LZ4_VERSION}"
 export ZOPEN_EXTRA_CPPFLAGS='-I../lib/'
-rm -f v1.9.3
-ln -s ${ZOPEN_NAME} v1.9.3
+
+rm -f "v${LZ4_VERSION}"
+ln -s ${ZOPEN_NAME} "v${LZ4_VERSION}"
 
 #
 # Starter for Python
@@ -45,3 +47,7 @@ echo "expectedFailures:0"
 echo "totalTests:1"
 }
 
+zopen_get_version()
+{
+./lz4 --version | awk ' { print $7; }' | tr -d 'v,'
+}
