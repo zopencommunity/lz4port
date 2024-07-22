@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # bump: lz4-version /LZ4_VERSION="(.*)"/ https://github.com/lz4/lz4.git|semver:^1
-LZ4_VERSION="1.9.4"
+LZ4_VERSION="1.10.0"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_STABLE_URL="https://github.com/lz4/lz4/archive/refs/tags/v${LZ4_VERSION}.tar.gz"
