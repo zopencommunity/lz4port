@@ -6,7 +6,7 @@ export ZOPEN_CATEGORIES="compression"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_STABLE_URL="https://github.com/lz4/lz4/archive/refs/tags/v${LZ4_VERSION}.tar.gz"
-export ZOPEN_STABLE_DEPS="curl gzip make coreutils python"
+export ZOPEN_STABLE_DEPS="curl gzip make coreutils check_python"
 export ZOPEN_BOOTSTRAP=skip
 export ZOPEN_CONFIGURE=skip
 export ZOPEN_INSTALL_OPTS="install POSIX_ENV=Yes PREFIX=\${ZOPEN_INSTALL_DIR}"   
