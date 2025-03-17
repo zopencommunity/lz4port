@@ -1,10 +1,10 @@
 diff --git a/programs/Makefile b/programs/Makefile
-index ace0d03..7c37698 100644
+index 643ce14..fdb9e61 100644
 --- a/programs/Makefile
 +++ b/programs/Makefile
-@@ -174,14 +174,8 @@ install: lz4
+@@ -211,14 +211,8 @@ install: lz4
  	@echo Installing binaries in $(DESTDIR)$(bindir)
- 	$(INSTALL_DIR) $(DESTDIR)$(bindir)/ $(DESTDIR)$(man1dir)/
+ 	$(MAKE_DIR) $(DESTDIR)$(bindir)/ $(DESTDIR)$(man1dir)/
  	$(INSTALL_PROGRAM) lz4$(EXT) $(DESTDIR)$(bindir)/lz4$(EXT)
 -	$(LN_SF) lz4$(EXT) $(DESTDIR)$(bindir)/lz4c$(EXT)
 -	$(LN_SF) lz4$(EXT) $(DESTDIR)$(bindir)/lz4cat$(EXT)
@@ -16,4 +16,4 @@ index ace0d03..7c37698 100644
 -	$(LN_SF) lz4.1 $(DESTDIR)$(man1dir)/unlz4.1
  	@echo lz4 installation completed
  
- uninstall:
+ .PHONY: uninstall
