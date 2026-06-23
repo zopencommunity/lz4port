@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/zopencommunity/lz4port/actions/workflows/codeql.yml/badge.svg)](https://github.com/zopencommunity/lz4port/actions/workflows/codeql.yml)
+
 [![Automatic version updates](https://github.com/ZOSOpenTools/lz4port/actions/workflows/bump.yml/badge.svg)](https://github.com/ZOSOpenTools/lz4port/actions/workflows/bump.yml)
 
 # Lz4
